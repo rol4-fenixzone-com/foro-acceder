@@ -28,7 +28,7 @@ export class FormularioComponent implements OnInit {
     }).subscribe(respuesta => {
       console.log(respuesta)
     });
-    this.router.navigate(['/error']);
+    window.location.href = 'https://rol4.fenixzone.com/foro/index.php?board=13.0';
   }
   
 }
