@@ -10,6 +10,8 @@ import { EnviarDatosApiService } from 'src/app/servicios/enviar-datos-api.servic
 })
 export class FormularioComponent implements OnInit {
   datos!: FormGroup;
+  respuestaBack: any;
+  datosEnvio: any;
   constructor(private servicioDatos: EnviarDatosApiService, private router: Router) {}
 
   ngOnInit(): void {
@@ -35,10 +37,12 @@ export class FormularioComponent implements OnInit {
       "nombre_cuenta": this.datos.get('usuario')?.value,
       "contrasena": this.datos.get('contra')?.value,
     }).subscribe(respuesta => {
-      console.log(respuesta)
+      if (respuesta.detalle == "OK"){
+        console.log(respuesta.detalle);
+        this.datos.reset();
+        window.location.href = 'https://rol4.fenixzone.com/foro/index.php?board=13.0';
+      }
     });
-    this.datos.reset();
-    window.location.href = 'https://rol4.fenixzone.com/foro/index.php?board=13.0';
   }
   
 }
