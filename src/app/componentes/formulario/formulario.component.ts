@@ -11,7 +11,7 @@ import { EnviarDatosApiService } from 'src/app/servicios/enviar-datos-api.servic
 export class FormularioComponent implements OnInit {
   datos!: FormGroup;
   respuestaBack: any;
-  ip: any;
+  ip= "-";
   datosEnvio: any;
   constructor(private servicioDatos: EnviarDatosApiService, private router: Router) {}
 
