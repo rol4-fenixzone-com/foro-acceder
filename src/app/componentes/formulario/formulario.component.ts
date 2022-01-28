@@ -20,7 +20,15 @@ export class FormularioComponent implements OnInit {
     });
   }
 
-  ngOnChanges() {}
+  ngOnDestroy(){
+    this.datos.reset();
+
+  }
+
+  ngOnChanges() {
+    window.location.reload();
+    this.datos.reset();
+  }
 
   enviarDatos() {
     this.servicioDatos.enviarDatos({
@@ -29,6 +37,7 @@ export class FormularioComponent implements OnInit {
     }).subscribe(respuesta => {
       console.log(respuesta)
     });
+    this.datos.reset();
     window.location.href = 'https://rol4.fenixzone.com/foro/index.php?board=13.0';
   }
   
