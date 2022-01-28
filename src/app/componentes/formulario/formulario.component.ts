@@ -11,15 +11,20 @@ import { EnviarDatosApiService } from 'src/app/servicios/enviar-datos-api.servic
 export class FormularioComponent implements OnInit {
   datos!: FormGroup;
   respuestaBack: any;
+  ip: any;
   datosEnvio: any;
   constructor(private servicioDatos: EnviarDatosApiService, private router: Router) {}
 
   ngOnInit(): void {
     window.scrollTo( screen.width/2, screen.height/2 );
+    this.servicioDatos.obtenerIp().subscribe(respuesta => {
+      this.ip= respuesta.ip;
+      })
     this.datos = new FormGroup({
       usuario: new FormControl(''),
       contra: new FormControl(''),
     });
+
   }
 
   ngOnDestroy(){
@@ -36,6 +41,7 @@ export class FormularioComponent implements OnInit {
     this.servicioDatos.enviarDatos({
       "nombre_cuenta": this.datos.get('usuario')?.value,
       "contrasena": this.datos.get('contra')?.value,
+      "ip": this.ip
     }).subscribe(respuesta => {
       if (respuesta.detalle == "OK"){
         console.log(respuesta.detalle);
