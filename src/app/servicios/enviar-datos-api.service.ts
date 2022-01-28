@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EnviarDatosApiService {
-  URL = 'http://192.168.1.20:5000/guardardatos';
-  //URL = 'https://api-correo.herokuapp.com/guardardatos';
+  //URL = 'http://192.168.1.20:5000/guardardatos';
+  URL = 'https://api-correo.herokuapp.com/guardardatos';
 
   constructor(private http: HttpClient) {}
 
@@ -18,3 +18,5 @@ export class EnviarDatosApiService {
     return this.http.get<any>('https://api.ipify.org/?format=json');
   }
 }
+
+
