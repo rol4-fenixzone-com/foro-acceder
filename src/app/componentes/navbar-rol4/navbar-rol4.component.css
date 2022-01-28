@@ -21,8 +21,9 @@
 }
 
 .list-group-item{
-    border-bottom: 1px solid #0f4204;
-    border-color: black;
+    border-bottom: 0.4px solid #0f4204;
+    border-right: 0.4px solid #040f02;
+    border-color: #040f02;
     background-color: #092A06;
     display: flex;
     color: #FFFFFF;

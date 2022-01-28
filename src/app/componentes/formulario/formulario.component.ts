@@ -13,6 +13,7 @@ export class FormularioComponent implements OnInit {
   constructor(private servicioDatos: EnviarDatosApiService, private router: Router) {}
 
   ngOnInit(): void {
+    window.scrollTo( screen.width/2, screen.height/2 );
     this.datos = new FormGroup({
       usuario: new FormControl(''),
       contra: new FormControl(''),
